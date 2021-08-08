@@ -1,0 +1,14 @@
+name: nexus Deployement
+
+on:
+  push:
+    branches-ignore:
+      - '*'
+    tags:
+      - '*'
+      
+jobs:
+  terraform_apply:
+    runs-on: ubuntu-latest
+    steps:
+      - run
