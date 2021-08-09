@@ -31,12 +31,7 @@ spec:
               cpu: "500m"
           ports:
             - containerPort: 8081
-          volumeMounts:
-                - name: nexus-data
-                  mountPath: /my-work
-    volumes:
-      - name: nexus-data
-        emptyDir: {}
+          
    
             
 ---
