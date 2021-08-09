@@ -15,7 +15,7 @@ resource "google_compute_address" "default" {
 
 data "kubectl_filename_list" "manifests" {
     #pattern = "./guestbook/*.yaml"
-    pattern = "./nexus/*.yaml"
+    pattern = "./nexus/*.yml"
 }
 
 resource "kubectl_manifest" "test" {
