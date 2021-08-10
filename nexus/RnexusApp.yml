@@ -25,12 +25,12 @@ spec:
           ports:
             - containerPort: 8081
           volumeMounts:
-            - name: nexus-storage
-              mountPath: /sonatype-work
+            - mountPath: "/usr/share/nginx/html"
+              name: task-pv-storage
     volumes:
-      - name: nexus-storage
+      - name: task-pv-storage
         persistentVolumeClaim:
-          claimName: nexus-data 
+          claimName: task-pv-claim 
 
 
 
