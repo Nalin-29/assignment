@@ -5,6 +5,8 @@ metadata:
   labels:
     app: nexus
 spec:
+  nodeSelector:
+    cloud.google.com/gke-preemptible: "true"
   replicas: 1
   selector:
     matchLabels:
