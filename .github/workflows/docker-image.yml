@@ -17,15 +17,10 @@ jobs:
     - name: Build the Docker image
       run: |
         docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-    steps:
-    - name: Checkout
-        uses: actions/checkout@v2    
-    - name: Setup - gcloud / gsutil
-      uses: GoogleCloudPlatform/github-actions/setup-gcloud@m
-      with:
-        service_account_key: ${{ secrets.GCS_SA_KEY }}
-        project_id: ${{ secrets.GCS_PROJECT }}
-        export_default_credentials: true  
-    - name: Deploy
-      run: |-
-        gsutil -m rsync -R output gs://my-bucket-nexus        
+   
+    - name: 'gcr.io/cloud-builders/nexus'
+      args: ['**/*']
+    artifacts:
+      objects:
+        location: 'gs://my-bucket-nexus/'
+        paths: ['**/*']        
