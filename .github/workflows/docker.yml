@@ -1,22 +1,15 @@
-name: cloudrun-deploy
+name: docker-deploy
 on:
   push:
     branches:
       - main
 jobs:
-  setup-build-publish-deploy:
-    name: Setup, Build, Publish, and Deploy
+  docker-build:
+    name: docker build
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-
-    # Setup gcloud CLI
-    - uses: actions/checkout@v1
-      with:
-        service_account_email: ${{ secrets.GCP_EMAIL }}
-        service_account_key: ${{ secrets.GCS_SA_KEY}}
-        export_default_credentials: true
     
     # Configure Docker with Credentials
     - name: Configure Docker
