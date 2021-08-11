@@ -33,6 +33,8 @@ spec:
         - name: task-pv-storage
           persistentVolumeClaim:
             claimName: task-pv-claim 
+      imagePullSecrets:
+        - name: gcr-secret      
 
 
 
