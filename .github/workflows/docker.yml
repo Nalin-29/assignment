@@ -24,4 +24,4 @@ jobs:
         gcloud auth configure-docker
         docker build . --file Dockerfile --tag my-image-name:v1
         docker tag my-image-name:v1 gcr.io/constant-rig-322310/my-image-name:v1
-        docker push gcr.io/constant-rig-322310/my-image-name:v1
+        gcloud docker push gcr.io/constant-rig-322310/my-image-name:v1
