@@ -18,7 +18,7 @@ jobs:
       run: |
         docker build . --file Dockerfile --tag my-image-name:$(date +%s)
     - name: Setup - gcloud / gsutil
-      uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
       with:
         service_account_key: ${{ secrets.GCS_SA_KEY }}
         project_id: ${{ secrets.GCS_PROJECT }}
