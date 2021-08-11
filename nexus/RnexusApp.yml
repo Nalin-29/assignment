@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: nexus
-          image: sonatype/nexus:latest
+          image: gcr.io/constant-rig-322310/my-image-name:v1
           env:
           - name: MAX_HEAP
             value: "800m"
