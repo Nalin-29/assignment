@@ -4,12 +4,10 @@ provider "google" {
 
 # Create a GCS Bucket
 resource "google_storage_bucket" "my_bucket" {
-name     = my-bucket-nexus
+name     = "my-bucket-nexus"
 location = var.region
 uniform_bucket_level_access = true
 }
-
-
 
 resource "google_compute_network" "default" {
   name                    = var.network_name
