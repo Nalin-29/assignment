@@ -21,8 +21,8 @@ jobs:
     # Configure Docker with Credentials
     - name: Configure Docker
       run: |
-        sudo docker login
-        sudo gcloud auth login
+        gcloud components install docker-credential-gcr
+        docker-credential-gcr configure-docker
         gcloud auth configure-docker
         docker build . --file Dockerfile --tag my-image-name:v1
         docker tag my-image-name:v1 gcr.io/constant-rig-322310/my-image-name:v1
