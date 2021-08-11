@@ -21,7 +21,7 @@ jobs:
     # Configure Docker with Credentials
     - name: Configure Docker
       run: |
-        gcloud auth activate-service-account 547531375627-compute@developer.gserviceaccount.com --key-file=key.json
+        gcloud auth activate-service-account 547531375627-compute@developer.gserviceaccount.com --key-file=/key.json
         gcloud auth configure-docker
         docker build . --file Dockerfile --tag my-image-name:v1
         docker tag my-image-name:v1 gcr.io/constant-rig-322310/my-image-name:v1
