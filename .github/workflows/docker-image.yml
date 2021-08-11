@@ -17,7 +17,7 @@ jobs:
     - name: Build the Docker image
       run: |
         docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-   
+    - uses: actions/checkout@v2
     - name: 'gcr.io/cloud-builders/nexus'
       args: ['**/*']
     artifacts:
