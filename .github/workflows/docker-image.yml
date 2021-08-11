@@ -17,12 +17,6 @@ jobs:
     - name: Build the Docker image
       run: |
         docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-    - name: 'Upload Artifact'
-      uses: actions/upload-artifact@v2
-      with:
-        name: my-artifact
-        path: my_file.txt
-        retention-days: 5
     - name: Setup - gcloud / gsutil
       uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
       with:
