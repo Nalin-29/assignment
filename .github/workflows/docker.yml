@@ -11,9 +11,10 @@ jobs:
     - name: Checkout
       uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
       with:
-            project_id: ${{ secrets.GCP_PROJECT }}
-            service_account_email: ${{ secrets.GCP_EMAIL }}
-            service_account_key: ${{ secrets.FILE }}
+        branch: main
+        project_id: ${{ secrets.GCP_PROJECT }}
+        service_account_email: ${{ secrets.GCP_EMAIL }}
+        service_account_key: ${{ secrets.FILE }}
     
     # Configure Docker with Credentials
     - name: Configure Docker
