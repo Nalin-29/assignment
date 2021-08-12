@@ -11,7 +11,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: login  
-      uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      uses: actions/checkout@v2
       with:
         branch: main
         github_token: ${{ secrets.GITHUB_TOKEN }}
