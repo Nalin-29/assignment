@@ -19,10 +19,9 @@ jobs:
         id : ${{secrets.PROJECT}}
       run: |
         echo $key >> key.json
-        echo $id >> ids
         cat key.json
         gcloud auth activate-service-account ${{secrets.GCP_EMAIL}} --key-file=key.json
         gcloud auth configure-docker 
         docker build . --file Dockerfile --tag my-image-name:latest
-        docker tag my-image-name:latest gcr.io/ids/my-image-name:v1
-        docker push gcr.io/ids/my-image-name:v1
+        docker tag my-image-name:latest gcr.io/$id/my-image-name:v1
+        docker push gcr.io/$id/my-image-name:v1
