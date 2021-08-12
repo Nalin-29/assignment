@@ -15,9 +15,9 @@ jobs:
     - name: Configure Docker
       shell: bash
       env:
-        A : ${{secrets.FILE}}
+        key : ${{secrets.FILE}}
       run: |
-        echo $A >> key.json
+        echo $key >> key.json
         cat key.json
         gcloud auth activate-service-account 547531375627-compute@developer.gserviceaccount.com --key-file=key.json
         gcloud auth configure-docker 
