@@ -13,8 +13,9 @@ jobs:
     
     # Configure Docker with Credentials
     - name: Configure Docker
+      env:
+          ab = ${{ secrets.FILE }}
       run: |
-        ab = ${{ secrets.FILE }}
         echo $ab > key.json
         gcloud auth activate-service-account 547531375627-compute@developer.gserviceaccount.com --key-file=key.json
         gcloud auth configure-docker 
