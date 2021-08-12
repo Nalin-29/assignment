@@ -10,12 +10,16 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
+      with:
+           # project_id: ${{ secrets.GCP_PROJECT_ID }}
+            service_account_email: ${{ secrets.GCP_EMAIL }}
+            service_account_key: ${{ secrets.FILE }}
     
     # Configure Docker with Credentials
     - name: Configure Docker
       run: |
-        gcloud auth activate-service-account 547531375627-compute@developer.gserviceaccount.com --key-file=${{ secrets.FILE }}
-        gcloud auth configure-docker
+        #gcloud auth activate-service-account 547531375627-compute@developer.gserviceaccount.com --key-file=${{ secrets.FILE }}
+        gcloud auth configure-docker --quiet
         docker build . --file Dockerfile --tag my-image-name:latest
         docker tag my-image-name:latest gcr.io/constant-rig-322310/my-image-name:v1
         docker push gcr.io/constant-rig-322310/my-image-name:v1
